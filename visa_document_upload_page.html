@@ -1,0 +1,165 @@
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--font-sans);background:var(--color-background-tertiary)}
+.screen{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);overflow:hidden}
+.nav{background:#0F6E56;display:flex;align-items:center;justify-content:space-between;padding:0 24px;height:56px}
+.nav-logo{display:flex;align-items:center;gap:8px}
+.nav-logo-icon{width:32px;height:32px;background:#1D9E75;border-radius:var(--border-radius-md);display:flex;align-items:center;justify-content:center}
+.nav-logo-text{font-size:15px;font-weight:500;color:#E1F5EE}
+.nav-right{display:flex;align-items:center;gap:6px;font-size:13px;color:#9FE1CB}
+.page-tabs{display:flex;gap:0;border-bottom:0.5px solid var(--color-border-tertiary);padding:0 24px;background:var(--color-background-primary)}
+.ptab{padding:12px 16px;font-size:13px;color:var(--color-text-secondary);cursor:pointer;border:none;background:transparent;font-family:var(--font-sans);border-bottom:2px solid transparent;margin-bottom:-1px;display:flex;align-items:center;gap:6px}
+.ptab.active{color:#0F6E56;border-bottom-color:#1D9E75;font-weight:500}
+.ptab.done{color:#1D9E75}
+.layout{display:grid;grid-template-columns:1fr 280px;gap:0}
+.main{padding:24px;border-right:0.5px solid var(--color-border-tertiary)}
+.page-title{font-size:16px;font-weight:500;color:var(--color-text-primary);margin-bottom:4px}
+.page-sub{font-size:13px;color:var(--color-text-secondary);margin-bottom:20px}
+.doc-card{border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:14px 16px;margin-bottom:12px;display:flex;align-items:center;gap:14px}
+.doc-icon{width:40px;height:40px;border-radius:var(--border-radius-md);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:18px}
+.doc-icon.pending{background:var(--color-background-secondary);color:var(--color-text-tertiary)}
+.doc-icon.uploaded{background:#E1F5EE;color:#0F6E56}
+.doc-icon.review{background:#FAEEDA;color:#854F0B}
+.doc-info{flex:1}
+.doc-name{font-size:14px;font-weight:500;color:var(--color-text-primary);margin-bottom:2px}
+.doc-meta{font-size:12px;color:var(--color-text-secondary)}
+.doc-status{font-size:12px;font-weight:500;padding:3px 10px;border-radius:20px;white-space:nowrap}
+.status-pending{background:var(--color-background-secondary);color:var(--color-text-secondary)}
+.status-uploaded{background:#E1F5EE;color:#085041}
+.status-review{background:#FAEEDA;color:#633806}
+.status-rejected{background:#FCEBEB;color:#791F1F}
+.doc-action{font-size:12px;color:#0F6E56;cursor:pointer;font-weight:500;white-space:nowrap}
+.upload-zone{border:1.5px dashed var(--color-border-secondary);border-radius:var(--border-radius-lg);padding:32px;text-align:center;margin-bottom:20px;background:var(--color-background-secondary)}
+.upload-icon{width:48px;height:48px;border-radius:50%;background:#E1F5EE;color:#0F6E56;display:flex;align-items:center;justify-content:center;margin:0 auto 12px;font-size:22px}
+.upload-title{font-size:14px;font-weight:500;color:var(--color-text-primary);margin-bottom:4px}
+.upload-sub{font-size:12px;color:var(--color-text-secondary);margin-bottom:14px}
+.upload-btn{background:#1D9E75;border:none;border-radius:var(--border-radius-md);padding:8px 18px;font-size:13px;font-weight:500;color:#E1F5EE;cursor:pointer}
+.upload-formats{font-size:11px;color:var(--color-text-tertiary);margin-top:10px}
+.req-list{font-size:12px;color:var(--color-text-secondary);line-height:1.8;padding-left:18px}
+.sidebar{padding:20px}
+.progress-card{background:var(--color-background-secondary);border-radius:var(--border-radius-lg);padding:16px;margin-bottom:14px}
+.progress-title{font-size:13px;font-weight:500;color:var(--color-text-primary);margin-bottom:10px}
+.progress-bar-bg{height:8px;background:var(--color-background-primary);border-radius:20px;overflow:hidden;margin-bottom:6px}
+.progress-bar-fill{height:100%;background:#1D9E75;border-radius:20px}
+.progress-text{font-size:12px;color:var(--color-text-secondary)}
+.checklist-item{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--color-text-secondary);padding:5px 0}
+.checklist-item.done{color:#0F6E56}
+.check-icon{width:16px;height:16px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;flex-shrink:0}
+.check-icon.done{background:#1D9E75;color:#E1F5EE}
+.check-icon.todo{border:1px solid var(--color-border-secondary)}
+.notice-card{background:#FAEEDA;border-radius:var(--border-radius-lg);padding:14px;font-size:12px;color:#633806;line-height:1.6;margin-bottom:14px}
+.submit-btn{width:100%;background:#1D9E75;border:none;border-radius:var(--border-radius-md);padding:11px;font-size:14px;font-weight:500;color:#E1F5EE;cursor:pointer;opacity:0.5}
+.help-link{display:flex;align-items:center;gap:6px;font-size:12px;color:#0F6E56;margin-top:12px;cursor:pointer}
+</style>
+
+<h2 class="sr-only">Visa and document upload page for a Hajj and Umrah travel booking, showing required documents, upload zone, and progress checklist</h2>
+
+<div style="padding:1rem 0">
+<div class="screen">
+  <div class="nav">
+    <div class="nav-logo">
+      <div class="nav-logo-icon"><i class="ti ti-moon-stars" style="font-size:18px;color:#9FE1CB" aria-hidden="true"></i></div>
+      <span class="nav-logo-text">Al-Noor Travels</span>
+    </div>
+    <div class="nav-right"><i class="ti ti-lock" style="font-size:14px" aria-hidden="true"></i> Secure booking</div>
+  </div>
+
+  <div class="page-tabs">
+    <button class="ptab done"><i class="ti ti-circle-check" style="font-size:14px" aria-hidden="true"></i> Traveller info</button>
+    <button class="ptab active"><i class="ti ti-file-text" style="font-size:14px" aria-hidden="true"></i> Documents</button>
+    <button class="ptab">Payment</button>
+    <button class="ptab">Confirmation</button>
+  </div>
+
+  <div class="layout">
+    <div class="main">
+      <div class="page-title">Upload your documents</div>
+      <div class="page-sub">Mohammad Rafiq · Ramadan Gold Package · Booking #BK-2061</div>
+
+      <div class="doc-card">
+        <div class="doc-icon uploaded"><i class="ti ti-file-check" aria-hidden="true"></i></div>
+        <div class="doc-info">
+          <div class="doc-name">Passport (front &amp; back)</div>
+          <div class="doc-meta">passport_rafiq.pdf · 1.2 MB · Uploaded 12 Jun</div>
+        </div>
+        <span class="doc-status status-uploaded">Verified</span>
+        <span class="doc-action">Replace</span>
+      </div>
+
+      <div class="doc-card">
+        <div class="doc-icon review"><i class="ti ti-clock" aria-hidden="true"></i></div>
+        <div class="doc-info">
+          <div class="doc-name">Passport-size photo (white background)</div>
+          <div class="doc-meta">photo_rafiq.jpg · 340 KB · Uploaded 14 Jun</div>
+        </div>
+        <span class="doc-status status-review">In review</span>
+        <span class="doc-action">Replace</span>
+      </div>
+
+      <div class="doc-card">
+        <div class="doc-icon pending"><i class="ti ti-vaccine" aria-hidden="true"></i></div>
+        <div class="doc-info">
+          <div class="doc-name">Vaccination certificate (Meningitis ACWY)</div>
+          <div class="doc-meta">PDF or image, max 5 MB</div>
+        </div>
+        <span class="doc-status status-pending">Pending</span>
+        <span class="doc-action">Upload</span>
+      </div>
+
+      <div class="doc-card">
+        <div class="doc-icon pending"><i class="ti ti-id" aria-hidden="true"></i></div>
+        <div class="doc-info">
+          <div class="doc-name">National ID card (NID)</div>
+          <div class="doc-meta">PDF or image, max 5 MB</div>
+        </div>
+        <span class="doc-status status-pending">Pending</span>
+        <span class="doc-action">Upload</span>
+      </div>
+
+      <div class="doc-card">
+        <div class="doc-icon pending"><i class="ti ti-users" aria-hidden="true"></i></div>
+        <div class="doc-info">
+          <div class="doc-name">Mahram relationship letter (for female pilgrims)</div>
+          <div class="doc-meta">Required if travelling without spouse/father</div>
+        </div>
+        <span class="doc-status status-pending">Pending</span>
+        <span class="doc-action">Upload</span>
+      </div>
+
+      <div class="upload-zone">
+        <div class="upload-icon"><i class="ti ti-cloud-upload" aria-hidden="true"></i></div>
+        <div class="upload-title">Drag and drop your file here</div>
+        <div class="upload-sub">or select a file from your device</div>
+        <button class="upload-btn"><i class="ti ti-upload" style="font-size:14px;margin-right:6px" aria-hidden="true"></i>Browse files</button>
+        <div class="upload-formats">Accepted formats: JPG, PNG, PDF — max size 5 MB per file</div>
+      </div>
+
+      <div class="notice-card">
+        <i class="ti ti-info-circle" style="font-size:14px;vertical-align:-2px;margin-right:6px" aria-hidden="true"></i>
+        Your passport must be valid for at least 6 months from your travel date. Ensure all pages are clear and uncropped before uploading.
+      </div>
+    </div>
+
+    <div class="sidebar">
+      <div class="progress-card">
+        <div class="progress-title">Document progress</div>
+        <div class="progress-bar-bg"><div class="progress-bar-fill" style="width:40%"></div></div>
+        <div class="progress-text">2 of 5 documents completed</div>
+      </div>
+
+      <div class="progress-card">
+        <div class="progress-title">Checklist</div>
+        <div class="checklist-item done"><span class="check-icon done"><i class="ti ti-check" aria-hidden="true"></i></span> Passport scan</div>
+        <div class="checklist-item done"><span class="check-icon done"><i class="ti ti-check" aria-hidden="true"></i></span> Passport photo</div>
+        <div class="checklist-item"><span class="check-icon todo"></span> Vaccination certificate</div>
+        <div class="checklist-item"><span class="check-icon todo"></span> National ID card</div>
+        <div class="checklist-item"><span class="check-icon todo"></span> Mahram letter</div>
+      </div>
+
+      <button class="submit-btn" disabled>Submit for visa processing</button>
+      <div class="help-link"><i class="ti ti-headset" style="font-size:14px" aria-hidden="true"></i> Need help with documents?</div>
+    </div>
+  </div>
+</div>
+</div>
