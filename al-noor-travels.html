@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Al-Noor Travels — Hajj & Umrah Packages</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+<style>
+:root{
+  --bg1:#ffffff;
+  --bg2:#f5f5f3;
+  --bg3:#eeede8;
+  --text1:#1a1a1a;
+  --text2:#6b6b66;
+  --text3:#9a9994;
+  --border1:rgba(0,0,0,0.08);
+  --border2:rgba(0,0,0,0.18);
+  --green-dark:#085041;
+  --green-main:#0F6E56;
+  --green-mid:#1D9E75;
+  --green-light:#5DCAA5;
+  --green-pale:#9FE1CB;
+  --green-bg:#E1F5EE;
+  --amber-bg:#FAEEDA;
+  --amber-text:#633806;
+  --amber-icon:#854F0B;
+  --red-bg:#FCEBEB;
+  --red-text:#791F1F;
+  --radius-sm:6px;
+  --radius-md:8px;
+  --radius-lg:12px;
+  --font:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--font);background:var(--bg3);color:var(--text1)}
+a{text-decoration:none;color:inherit}
+
+/* NAV */
+.nav{background:var(--green-main);display:flex;align-items:center;justify-content:space-between;padding:0 32px;height:60px;position:sticky;top:0;z-index:100}
+.nav-logo{display:flex;align-items:center;gap:10px}
+.nav-logo-icon{width:34px;height:34px;background:var(--green-mid);border-radius:var(--radius-md);display:flex;align-items:center;justify-content:center}
+.nav-logo-icon i{font-size:18px;color:var(--green-pale)}
+.nav-logo-text{font-size:16px;font-weight:500;color:var(--green-bg)}
+.nav-links{display:flex;gap:24px}
+.nav-link{font-size:13px;color:var(--green-pale);cursor:pointer;transition:color .2s}
+.nav-link:hover,.nav-link.active{color:var(--green-bg)}
+.nav-cta{background:var(--green-mid);border:none;border-radius:var(--radius-md);padding:8px 18px;font-size:13px;font-weight:500;color:var(--green-bg);cursor:pointer;transition:background .2s}
+.nav-cta:hover{background:var(--green-light)}
+
+/* PAGES */
+.page{display:none}
+.page.active{display:block}
+
+/* HERO */
+.hero{background:#085041;padding:64px 32px 52px;text-align:center}
+.hero-pill{display:inline-flex;align-items:center;gap:6px;background:var(--green-main);border:0.5px solid var(--green-mid);border-radius:20px;padding:5px 14px;font-size:12px;color:var(--green-pale);margin-bottom:24px}
+.hero-title{font-size:32px;font-weight:500;color:var(--green-bg);line-height:1.25;margin-bottom:14px;max-width:520px;margin-left:auto;margin-right:auto}
+.hero-sub{font-size:15px;color:var(--green-light);line-height:1.7;margin-bottom:32px;max-width:400px;margin-left:auto;margin-right:auto}
+.hero-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.btn-primary{background:var(--green-mid);border:none;border-radius:var(--radius-md);padding:11px 22px;font-size:14px;font-weight:500;color:var(--green-bg);cursor:pointer;transition:background .2s}
+.btn-primary:hover{background:var(--green-light)}
+.btn-outline{background:transparent;border:0.5px solid var(--green-mid);border-radius:var(--radius-md);padding:11px 22px;font-size:14px;color:var(--green-pale);cursor:pointer;transition:all .2s}
+.btn-outline:hover{border-color:var(--green-pale);color:var(--green-bg)}
+
+/* SEARCH BAR */
+.search-wrap{padding:0 32px;margin-top:-22px;position:relative;z-index:10}
+.search-bar{background:var(--bg1);border-radius:var(--radius-lg);padding:18px 20px;display:grid;grid-template-columns:1fr 1fr 1fr auto;gap:12px;border:0.5px solid var(--border1);box-shadow:0 2px 12px rgba(0,0,0,0.08)}
+.s-field{display:flex;flex-direction:column;gap:5px}
+.s-label{font-size:11px;font-weight:500;color:var(--text3);letter-spacing:.05em;text-transform:uppercase}
+.s-val{font-size:13px;color:var(--text1);display:flex;align-items:center;gap:6px}
+.s-val i{font-size:15px;color:var(--text3)}
+.s-divider{width:0.5px;background:var(--border1);align-self:stretch}
+.search-btn{background:var(--green-mid);border:none;border-radius:var(--radius-md);padding:0 20px;font-size:13px;font-weight:500;color:var(--green-bg);cursor:pointer;white-space:nowrap;display:flex;align-items:center;gap:6px;transition:background .2s}
+.search-btn:hover{background:var(--green-main)}
+
+/* SECTIONS */
+.section{padding:40px 32px}
+.section-alt{background:var(--bg2)}
+.section-head{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:24px}
+.section-title{font-size:20px;font-weight:500;color:var(--text1)}
+.section-link{font-size:13px;color:var(--green-main);cursor:pointer}
+.divider{height:0.5px;background:var(--border1)}
+
+/* PACKAGES */
+.pkg-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.pkg-card{background:var(--bg1);border:0.5px solid var(--border1);border-radius:var(--radius-lg);overflow:hidden;cursor:pointer;transition:box-shadow .2s}
+.pkg-card:hover{box-shadow:0 4px 16px rgba(0,0,0,0.1)}
+.pkg-card.featured{border:2px solid var(--green-mid)}
+.pkg-img{height:100px;background:var(--green-bg);display:flex;align-items:center;justify-content:center;position:relative}
+.pkg-img i{font-size:40px;color:var(--green-main)}
+.pkg-badge{position:absolute;top:10px;left:10px;background:var(--green-mid);color:var(--green-bg);font-size:10px;font-weight:500;padding:3px 10px;border-radius:20px}
+.pkg-body{padding:14px}
+.pkg-type{font-size:11px;color:var(--green-main);font-weight:500;margin-bottom:4px;text-transform:uppercase;letter-spacing:.05em}
+.pkg-name{font-size:14px;font-weight:500;color:var(--text1);margin-bottom:8px}
+.pkg-meta{display:flex;align-items:center;gap:12px;font-size:12px;color:var(--text2);margin-bottom:10px}
+.pkg-meta i{font-size:13px}
+.pkg-price{font-size:17px;font-weight:500;color:var(--green-main)}
+.pkg-price span{font-size:12px;font-weight:400;color:var(--text2)}
+
+/* FEATURES */
+.feat-row{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.feat-card{background:var(--bg1);border:0.5px solid var(--border1);border-radius:var(--radius-lg);padding:20px 16px;text-align:center}
+.feat-icon{width:40px;height:40px;background:var(--green-bg);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 12px;color:var(--green-main);font-size:20px}
+.feat-title{font-size:13px;font-weight:500;color:var(--text1);margin-bottom:6px}
+.feat-desc{font-size:12px;color:var(--text2);line-height:1.6}
+
+/* STEPS */
+.steps-row{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;position:relative}
+.step-line{position:absolute;top:36px;left:calc(12.5% + 20px);right:calc(12.5% + 20px);height:0.5px;background:var(--border2)}
+.step-card{text-align:center;padding:20px 10px}
+.step-num{width:36px;height:36px;border-radius:50%;background:var(--green-bg);color:var(--green-main);font-size:14px;font-weight:500;display:flex;align-items:center;justify-content:center;margin:0 auto 12px;border:0.5px solid var(--green-pale)}
+.step-title{font-size:13px;font-weight:500;color:var(--text1);margin-bottom:5px}
+.step-desc{font-size:12px;color:var(--text2);line-height:1.6}
+
+/* TESTIMONIALS */
+.testi-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.testi-card{background:var(--bg2);border-radius:var(--radius-lg);padding:18px;border:0.5px solid var(--border1)}
+.testi-top{display:flex;align-items:center;gap:12px;margin-bottom:12px}
+.avatar{width:38px;height:38px;border-radius:50%;background:var(--green-mid);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:500;color:var(--green-bg);flex-shrink:0}
+.testi-name{font-size:13px;font-weight:500;color:var(--text1)}
+.testi-loc{font-size:12px;color:var(--text2)}
+.stars{color:#BA7517;font-size:13px;margin-bottom:6px}
+.testi-text{font-size:13px;color:var(--text2);line-height:1.7}
+
+/* STATS */
+.stats-bar{background:#085041;padding:28px 32px;display:grid;grid-template-columns:repeat(4,1fr);gap:12px;text-align:center}
+.stat-n{font-size:24px;font-weight:500;color:var(--green-bg)}
+.stat-l{font-size:12px;color:var(--green-light);margin-top:4px}
+
+/* FOOTER */
+.footer{background:#04342C;padding:32px;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:32px}
+.footer-brand-name{font-size:15px;font-weight:500;color:var(--green-pale);margin-bottom:10px}
+.footer-brand{font-size:13px;color:var(--green-light);line-height:1.7}
+.footer-head{font-size:11px;font-weight:500;color:var(--green-pale);margin-bottom:12px;letter-spacing:.06em;text-transform:uppercase}
+.footer-link{font-size:13px;color:var(--green-light);margin-bottom:8px;cursor:pointer;display:block;display:flex;align-items:center;gap:6px;transition:color .2s}
+.footer-link:hover{color:var(--green-pale)}
+.footer-link i{font-size:14px}
+.footer-bottom{background:#04342C;border-top:0.5px solid var(--green-main);padding:14px 32px;display:flex;justify-content:space-between;align-items:center}
+.footer-copy{font-size:12px;color:var(--green-light)}
+
+/* BOOKING PAGE */
+.booking-header{background:var(--bg1);border-bottom:0.5px solid var(--border1);padding:20px 32px}
+.booking-tabs{display:flex;gap:0;border-bottom:0.5px solid var(--border1);padding:0 32px;background:var(--bg1)}
+.btab{padding:14px 18px;font-size:13px;color:var(--text2);cursor:pointer;border:none;background:transparent;font-family:var(--font);border-bottom:2px solid transparent;margin-bottom:-1px;display:flex;align-items:center;gap:6px;transition:color .2s}
+.btab.active{color:var(--green-main);border-bottom-color:var(--green-mid);font-weight:500}
+.btab.done{color:var(--green-mid)}
+.booking-layout{display:grid;grid-template-columns:1fr 300px;gap:0;background:var(--bg3)}
+.booking-main{padding:28px 32px;background:var(--bg3)}
+.bk-section{background:var(--bg1);border:0.5px solid var(--border1);border-radius:var(--radius-lg);padding:20px;margin-bottom:14px}
+.bk-title{font-size:14px;font-weight:500;color:var(--text1);margin-bottom:4px;display:flex;align-items:center;gap:8px}
+.bk-sub{font-size:12px;color:var(--text2);margin-bottom:16px}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px}
+.form-field{display:flex;flex-direction:column;gap:5px}
+.form-label{font-size:12px;color:var(--text2);font-weight:500}
+.form-input{background:var(--bg2);border:0.5px solid var(--border1);border-radius:var(--radius-md);padding:9px 12px;font-size:13px;color:var(--text1);width:100%;font-family:var(--font);transition:border .2s}
+.form-input:focus{outline:none;border-color:var(--green-mid)}
+.room-opts{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.room-opt{border:0.5px solid var(--border1);border-radius:var(--radius-md);padding:12px;cursor:pointer;font-size:13px;color:var(--text2);text-align:center;transition:all .2s}
+.room-opt:hover{border-color:var(--green-light)}
+.room-opt.selected{border:2px solid var(--green-mid);color:var(--green-dark);font-weight:500}
+.room-opt i{font-size:20px;display:block;margin-bottom:5px}
+.room-opt.selected i{color:var(--green-mid)}
+.continue-btn{background:var(--green-mid);border:none;border-radius:var(--radius-md);padding:12px 28px;font-size:14px;font-weight:500;color:var(--green-bg);cursor:pointer;transition:background .2s}
+.continue-btn:hover{background:var(--green-main)}
+.booking-sidebar{padding:20px;background:var(--bg3)}
+.sum-card{background:var(--bg1);border:0.5px solid var(--border1);border-radius:var(--radius-lg);padding:18px;margin-bottom:12px}
+.sum-title{font-size:13px;font-weight:500;color:var(--text1);margin-bottom:14px}
+.sum-pkg{background:var(--green-bg);border-radius:var(--radius-md);padding:12px;margin-bottom:14px;display:flex;align-items:center;gap:12px}
+.sum-pkg i{font-size:26px;color:var(--green-main)}
+.sum-pkg-name{font-size:13px;font-weight:500;color:var(--green-dark)}
+.sum-pkg-sub{font-size:12px;color:var(--green-main)}
+.sum-row{display:flex;justify-content:space-between;font-size:13px;margin-bottom:7px}
+.sum-lbl{color:var(--text2)}
+.sum-val{color:var(--text1);font-weight:500}
+.sum-divider{height:0.5px;background:var(--border1);margin:12px 0}
+.sum-total{display:flex;justify-content:space-between;font-size:15px;font-weight:500}
+.sum-total-val{color:var(--green-main)}
+.deposit-note{font-size:12px;color:var(--text2);margin-top:6px}
+.pay-btn{width:100%;background:var(--green-mid);border:none;border-radius:var(--radius-md);padding:12px;font-size:14px;font-weight:500;color:var(--green-bg);cursor:pointer;margin-top:12px;transition:background .2s}
+.pay-btn:hover{background:var(--green-main)}
+.trust-row{display:flex;align-items:center;gap:6px;margin-top:10px;font-size:12px;color:var(--text2)}
+.trust-row i{color:var(--green-mid);font-size:14px}
+
+/* VISA DOC PAGE */
+.doc-page-wrap{display:grid;grid-template-columns:1fr 280px;gap:0;background:var(--bg3)}
+.doc-main{padding:28px 32px}
+.doc-page-title{font-size:16px;font-weight:500;color:var(--text1);margin-bottom:4px}
+.doc-page-sub{font-size:13px;color:var(--text2);margin-bottom:20px}
+.doc-card{background:var(--bg1);border:0.5px solid var(--border1);border-radius:var(--radius-lg);padding:16px 18px;margin-bottom:10px;display:flex;align-items:center;gap:14px}
+.doc-icon{width:42px;height:42px;border-radius:var(--radius-md);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:20px}
+.doc-icon.pending{background:var(--bg2);color:var(--text3)}
+.doc-icon.uploaded{background:var(--green-bg);color:var(--green-main)}
+.doc-icon.review{background:var(--amber-bg);color:var(--amber-icon)}
+.doc-info{flex:1}
+.doc-name{font-size:14px;font-weight:500;color:var(--text1);margin-bottom:3px}
+.doc-meta{font-size:12px;color:var(--text2)}
+.doc-status{font-size:12px;font-weight:500;padding:3px 10px;border-radius:20px;white-space:nowrap}
+.s-verified{background:var(--green-bg);color:var(--green-dark)}
+.s-review{background:var(--amber-bg);color:var(--amber-text)}
+.s-pending{background:var(--bg2);color:var(--text2)}
+.doc-action{font-size:12px;color:var(--green-main);cursor:pointer;font-weight:500;white-space:nowrap;padding:5px 10px;border:0.5px solid var(--border1);border-radius:var(--radius-sm);transition:all .2s}
+.doc-action:hover{background:var(--green-bg)}
+.upload-zone{border:1.5px dashed var(--border2);border-radius:var(--radius-lg);padding:36px;text-align:center;margin:20px 0;background:var(--bg2)}
+.upload-icon{width:52px;height:52px;border-radius:50%;background:var(--green-bg);color:var(--green-main);display:flex;align-items:center;justify-content:center;margin:0 auto 14px;font-size:24px}
+.upload-title{font-size:14px;font-weight:500;color:var(--text1);margin-bottom:5px}
+.upload-sub{font-size:12px;color:var(--text2);margin-bottom:16px}
+.upload-btn{background:var(--green-mid);border:none;border-radius:var(--radius-md);padding:9px 20px;font-size:13px;font-weight:500;color:var(--green-bg);cursor:pointer;display:inline-flex;align-items:center;gap:6px;transition:background .2s}
+.upload-btn:hover{background:var(--green-main)}
+.upload-formats{font-size:11px;color:var(--text3);margin-top:10px}
+.notice-card{background:var(--amber-bg);border-radius:var(--radius-lg);padding:14px 16px;font-size:12px;color:var(--amber-text);line-height:1.7}
+.notice-card i{font-size:14px;vertical-align:-2px;margin-right:5px}
+.doc-sidebar{padding:20px;background:var(--bg3)}
+.prog-card{background:var(--bg1);border:0.5px solid var(--border1);border-radius:var(--radius-lg);padding:18px;margin-bottom:12px}
+.prog-title{font-size:13px;font-weight:500;color:var(--text1);margin-bottom:12px}
+.prog-bar-bg{height:8px;background:var(--bg2);border-radius:20px;overflow:hidden;margin-bottom:6px}
+.prog-bar-fill{height:100%;background:var(--green-mid);border-radius:20px;transition:width .5s ease}
+.prog-text{font-size:12px;color:var(--text2)}
+.chk-item{display:flex;align-items:center;gap:8px;font-size:12px;padding:6px 0;color:var(--text2)}
+.chk-item.done{color:var(--green-main)}
+.chk-dot{width:18px;height:18px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;flex-shrink:0}
+.chk-dot.done{background:var(--green-mid);color:var(--green-bg)}
+.chk-dot.todo{border:1.5px solid var(--border2)}
+.submit-btn{width:100%;background:var(--green-mid);border:none;border-radius:var(--radius-md);padding:12px;font-size:14px;font-weight:500;color:var(--green-bg);cursor:pointer;opacity:0.45;transition:all .2s}
+.submit-btn.ready{opacity:1}
+.submit-btn.ready:hover{background:var(--green-main)}
+.help-link{display:flex;align-items:center;gap:6px;font-size:13px;color:var(--green-main);margin-top:14px;cursor:pointer}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+  .pkg-grid{grid-template-columns:1fr 1fr}
+  .feat-row{grid-template-columns:1fr 1fr}
+  .steps-row{grid-template-columns:1fr 1fr}
+  .step-line{display:none}
+  .footer{grid-template-columns:1fr 1fr}
+  .booking-layout,.doc-page-wrap{grid-template-columns:1fr}
+  .booking-sidebar,.doc-sidebar{display:none}
+  .search-bar{grid-template-columns:1fr;gap:10px}
+  .s-divider{display:none}
+  .nav-links{display:none}
+}
+@media(max-width:480px){
+  .pkg-grid,.feat-row,.steps-row,.testi-grid{grid-template-columns:1fr}
+  .hero-title{font-size:24px}
+  .nav{padding:0 16px}
+  .section{padding:28px 16px}
+  .footer{grid-template-columns:1fr;padding:24px 16px}
+}
+</style>
+</head>
+<body>
+
+<!-- ===== NAVIGATION ===== -->
+<nav class="nav">
+  <div class="nav-logo">
+    <div class="nav-logo-icon"><i class="ti ti-moon-stars"></i></div>
+    <span class="nav-logo-text">Al-Noor Travels</span>
+  </div>
+  <div class="nav-links">
+    <span class="nav-link active" onclick="showPage('home')">Home</span>
+    <span class="nav-link" onclick="showPage('packages')">Packages</span>
+    <span class="nav-link" onclick="showPage('visa')">Visa & Docs</span>
+    <span class="nav-link">About</span>
+    <span class="nav-link">Contact</span>
+  </div>
+  <button class="nav-cta" onclick="showPage('booking')">Book now</button>
+</nav>
+
+<!-- ===== HOME PAGE ===== -->
+<div id="page-home" class="page active">
+
+  <div class="hero">
+    <div class="hero-pill"><i class="ti ti-certificate"></i> Ministry-approved operator</div>
+    <div class="hero-title">Your blessed journey to the Holy Land begins here</div>
+    <div class="hero-sub">Trusted Hajj & Umrah packages with full visa support, guided tours, and 24/7 care throughout your pilgrimage.</div>
+    <div class="hero-btns">
+      <button class="btn-primary" onclick="showPage('packages')">Explore packages</button>
+      <button class="btn-outline">Free consultation</button>
+    </div>
+  </div>
+
+  <div class="search-wrap">
+    <div class="search-bar">
+      <div class="s-field">
+        <span class="s-label">Journey type</span>
+        <span class="s-val"><i class="ti ti-building-mosque"></i> Umrah</span>
+      </div>
+      <div class="s-divider"></div>
+      <div class="s-field">
+        <span class="s-label">Departure city</span>
+        <span class="s-val"><i class="ti ti-map-pin"></i> Dhaka, BD</span>
+      </div>
+      <div class="s-divider"></div>
+      <div class="s-field">
+        <span class="s-label">Travel month</span>
+        <span class="s-val"><i class="ti ti-calendar"></i> Ramadan 2026</span>
+      </div>
+      <button class="search-btn" onclick="showPage('packages')"><i class="ti ti-search"></i> Search</button>
+    </div>
+  </div>
+
+  <div class="section" style="padding-top:36px">
+    <div class="section-head">
+      <span class="section-title">Featured packages</span>
+      <span class="section-link" onclick="showPage('packages')">View all →</span>
+    </div>
+    <div class="pkg-grid">
+      <div class="pkg-card featured" onclick="showPage('booking')">
+        <div class="pkg-img"><i class="ti ti-building-mosque"></i><span class="pkg-badge">Most popular</span></div>
+        <div class="pkg-body">
+          <div class="pkg-type">Umrah</div>
+          <div class="pkg-name">Ramadan Gold Package</div>
+          <div class="pkg-meta"><span><i class="ti ti-clock"></i> 14 nights</span><span><i class="ti ti-star"></i> 4.9</span></div>
+          <div class="pkg-price">BDT 1,85,000 <span>/ person</span></div>
+        </div>
+      </div>
+      <div class="pkg-card" onclick="showPage('booking')">
+        <div class="pkg-img"><i class="ti ti-kaaba"></i></div>
+        <div class="pkg-body">
+          <div class="pkg-type">Hajj</div>
+          <div class="pkg-name">Hajj Standard 2026</div>
+          <div class="pkg-meta"><span><i class="ti ti-clock"></i> 40 nights</span><span><i class="ti ti-star"></i> 4.8</span></div>
+          <div class="pkg-price">BDT 5,20,000 <span>/ person</span></div>
+        </div>
+      </div>
+      <div class="pkg-card" onclick="showPage('booking')">
+        <div class="pkg-img"><i class="ti ti-users"></i></div>
+        <div class="pkg-body">
+          <div class="pkg-type">Umrah</div>
+          <div class="pkg-name">Family Economy Pack</div>
+          <div class="pkg-meta"><span><i class="ti ti-clock"></i> 10 nights</span><span><i class="ti ti-star"></i> 4.7</span></div>
+          <div class="pkg-price">BDT 1,20,000 <span>/ person</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="section section-alt">
+    <div class="section-head"><span class="section-title">Why choose us</span></div>
+    <div class="feat-row">
+      <div class="feat-card">
+        <div class="feat-icon"><i class="ti ti-license"></i></div>
+        <div class="feat-title">Ministry-licensed</div>
+        <div class="feat-desc">Officially approved by Saudi & Bangladesh authorities</div>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon"><i class="ti ti-headset"></i></div>
+        <div class="feat-title">24/7 support</div>
+        <div class="feat-desc">Dedicated guide & support team from departure to return</div>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon"><i class="ti ti-shield-check"></i></div>
+        <div class="feat-title">Visa guarantee</div>
+        <div class="feat-desc">Full visa processing with 100% approval track record</div>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon"><i class="ti ti-home"></i></div>
+        <div class="feat-title">Premium hotels</div>
+        <div class="feat-desc">Walking distance from Haram for all packages</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="section">
+    <div class="section-head"><span class="section-title">How it works</span></div>
+    <div class="steps-row">
+      <div class="step-line"></div>
+      <div class="step-card"><div class="step-num">1</div><div class="step-title">Choose a package</div><div class="step-desc">Browse Hajj & Umrah packages by date, budget & hotel rating</div></div>
+      <div class="step-card"><div class="step-num">2</div><div class="step-title">Book & pay deposit</div><div class="step-desc">Secure your seat with a small deposit — pay the rest in stages</div></div>
+      <div class="step-card"><div class="step-num">3</div><div class="step-title">Visa & documents</div><div class="step-desc">We handle your visa, Mahram letter & all travel documents</div></div>
+      <div class="step-card"><div class="step-num">4</div><div class="step-title">Travel & guided</div><div class="step-desc">Fly with your group and be guided every step of the way</div></div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="section section-alt">
+    <div class="section-head"><span class="section-title">What pilgrims say</span></div>
+    <div class="testi-grid">
+      <div class="testi-card">
+        <div class="testi-top">
+          <div class="avatar">MR</div>
+          <div><div class="testi-name">Mohammad Rafiq</div><div class="testi-loc">Dhaka · Umrah 2025</div></div>
+        </div>
+        <div class="stars">★★★★★</div>
+        <div class="testi-text">Everything was seamless — from the visa to the hotel room just 300m from Haram. The guide was knowledgeable and caring throughout the entire journey.</div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-top">
+          <div class="avatar">SF</div>
+          <div><div class="testi-name">Salma Fatema</div><div class="testi-loc">Chittagong · Hajj 2024</div></div>
+        </div>
+        <div class="stars">★★★★★</div>
+        <div class="testi-text">As a first-time Hajj pilgrim, I was nervous. Al-Noor made every step clear and comfortable. A truly blessed experience I will remember forever.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="stats-bar">
+    <div><div class="stat-n">12,000+</div><div class="stat-l">Pilgrims served</div></div>
+    <div><div class="stat-n">15 yrs</div><div class="stat-l">In operation</div></div>
+    <div><div class="stat-n">100%</div><div class="stat-l">Visa approval rate</div></div>
+    <div><div class="stat-n">4.9 / 5</div><div class="stat-l">Average rating</div></div>
+  </div>
+
+  <footer class="footer">
+    <div>
+      <div class="footer-brand-name">Al-Noor Travels</div>
+      <div class="footer-brand">Your trusted partner for Hajj & Umrah since 2010. Ministry-licensed, pilgrim-first.</div>
+    </div>
+    <div>
+      <div class="footer-head">Packages</div>
+      <span class="footer-link">Hajj 2026</span>
+      <span class="footer-link">Umrah packages</span>
+      <span class="footer-link">Ramadan special</span>
+      <span class="footer-link">Group bookings</span>
+    </div>
+    <div>
+      <div class="footer-head">Support</div>
+      <span class="footer-link">Visa services</span>
+      <span class="footer-link">Track booking</span>
+      <span class="footer-link">FAQ</span>
+      <span class="footer-link">Contact us</span>
+    </div>
+    <div>
+      <div class="footer-head">Contact</div>
+      <span class="footer-link"><i class="ti ti-phone"></i> +880 1700-000000</span>
+      <span class="footer-link"><i class="ti ti-mail"></i> info@alnoor.com.bd</span>
+      <span class="footer-link"><i class="ti ti-map-pin"></i> Motijheel, Dhaka</span>
+    </div>
+  </footer>
+  <div class="footer-bottom">
+    <span class="footer-copy">© 2026 Al-Noor Travels. All rights reserved.</span>
+    <span class="footer-copy">Privacy · Terms</span>
+  </div>
+</div>
+
+<!-- ===== PACKAGES PAGE ===== -->
+<div id="page-packages" class="page">
+  <div class="section" style="padding-bottom:10px">
+    <div class="section-title" style="margin-bottom:6px">All packages</div>
+    <div style="font-size:13px;color:var(--text2);margin-bottom:24px">Choose the pilgrimage package that suits your needs and budget</div>
+    <div class="pkg-grid">
+      <div class="pkg-card featured" onclick="showPage('booking')">
+        <div class="pkg-img"><i class="ti ti-building-mosque"></i><span class="pkg-badge">Most popular</span></div>
+        <div class="pkg-body">
+          <div class="pkg-type">Umrah</div>
+          <div class="pkg-name">Ramadan Gold Package</div>
+          <div class="pkg-meta"><span><i class="ti ti-clock"></i> 14 nights</span><span><i class="ti ti-star"></i> 4.9</span><span><i class="ti ti-users"></i> Group</span></div>
+          <div class="pkg-price">BDT 1,85,000 <span>/ person</span></div>
+        </div>
+      </div>
+      <div class="pkg-card" onclick="showPage('booking')">
+        <div class="pkg-img"><i class="ti ti-kaaba"></i></div>
+        <div class="pkg-body">
+          <div class="pkg-type">Hajj</div>
+          <div class="pkg-name">Hajj Standard 2026</div>
+          <div class="pkg-meta"><span><i class="ti ti-clock"></i> 40 nights</span><span><i class="ti ti-star"></i> 4.8</span></div>
+          <div class="pkg-price">BDT 5,20,000 <span>/ person</span></div>
+        </div>
+      </div>
+      <div class="pkg-card" onclick="showPage('booking')">
+        <div class="pkg-img"><i class="ti ti-users"></i></div>
+        <div class="pkg-body">
+          <div class="pkg-type">Umrah</div>
+          <div class="pkg-name">Family Economy Pack</div>
+          <div class="pkg-meta"><span><i class="ti ti-clock"></i> 10 nights</span><span><i class="ti ti-star"></i> 4.7</span></div>
+          <div class="pkg-price">BDT 1,20,000 <span>/ person</span></div>
+        </div>
+      </div>
+      <div class="pkg-card" onclick="showPage('booking')">
+        <div class="pkg-img"><i class="ti ti-star"></i></div>
+        <div class="pkg-body">
+          <div class="pkg-type">Umrah</div>
+          <div class="pkg-name">VIP Executive Package</div>
+          <div class="pkg-meta"><span><i class="ti ti-clock"></i> 14 nights</span><span><i class="ti ti-star"></i> 5.0</span></div>
+          <div class="pkg-price">BDT 3,50,000 <span>/ person</span></div>
+        </div>
+      </div>
+      <div class="pkg-card" onclick="showPage('booking')">
+        <div class="pkg-img"><i class="ti ti-heart"></i></div>
+        <div class="pkg-body">
+          <div class="pkg-type">Umrah</div>
+          <div class="pkg-name">Honeymoon Couple Pack</div>
+          <div class="pkg-meta"><span><i class="ti ti-clock"></i> 12 nights</span><span><i class="ti ti-star"></i> 4.9</span></div>
+          <div class="pkg-price">BDT 2,80,000 <span>/ couple</span></div>
+        </div>
+      </div>
+      <div class="pkg-card" onclick="showPage('booking')">
+        <div class="pkg-img"><i class="ti ti-plane"></i></div>
+        <div class="pkg-body">
+          <div class="pkg-type">Hajj</div>
+          <div class="pkg-name">Hajj Premium 2026</div>
+          <div class="pkg-meta"><span><i class="ti ti-clock"></i> 40 nights</span><span><i class="ti ti-star"></i> 4.9</span></div>
+          <div class="pkg-price">BDT 7,80,000 <span>/ person</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== BOOKING PAGE ===== -->
+<div id="page-booking" class="page">
+  <div class="booking-tabs">
+    <button class="btab done"><i class="ti ti-circle-check"></i> Traveller info</button>
+    <button class="btab active"><i class="ti ti-file-text"></i> Documents</button>
+    <button class="btab">Payment</button>
+    <button class="btab">Confirmation</button>
+  </div>
+  <div class="booking-layout">
+    <div class="booking-main">
+      <div class="bk-section">
+        <div class="bk-title"><span style="width:24px;height:24px;border-radius:50%;background:var(--green-mid);color:var(--green-bg);display:inline-flex;align-items:center;justify-content:center;font-size:12px">1</span> Primary traveller</div>
+        <div class="bk-sub">Details must match your passport exactly</div>
+        <div class="form-row">
+          <div class="form-field"><span class="form-label">Full name (as per passport)</span><input class="form-input" placeholder="Mohammad Rafiq"></div>
+          <div class="form-field"><span class="form-label">Passport number</span><input class="form-input" placeholder="AA0000000"></div>
+        </div>
+        <div class="form-row">
+          <div class="form-field"><span class="form-label">Date of birth</span><input class="form-input" placeholder="DD / MM / YYYY"></div>
+          <div class="form-field"><span class="form-label">Nationality</span><input class="form-input" placeholder="Bangladeshi"></div>
+        </div>
+        <div class="form-row">
+          <div class="form-field"><span class="form-label">Mobile</span><input class="form-input" placeholder="+880 17XX-XXXXXX"></div>
+          <div class="form-field"><span class="form-label">Email</span><input class="form-input" placeholder="you@email.com"></div>
+        </div>
+      </div>
+      <div class="bk-section">
+        <div class="bk-title"><span style="width:24px;height:24px;border-radius:50%;background:var(--green-mid);color:var(--green-bg);display:inline-flex;align-items:center;justify-content:center;font-size:12px">2</span> Room preference</div>
+        <div class="room-opts" style="margin-top:12px">
+          <div class="room-opt" onclick="selectRoom(this)"><i class="ti ti-user"></i>Single</div>
+          <div class="room-opt selected" onclick="selectRoom(this)"><i class="ti ti-users"></i>Double</div>
+          <div class="room-opt" onclick="selectRoom(this)"><i class="ti ti-users-group"></i>Quad (4-share)</div>
+        </div>
+      </div>
+      <div class="bk-section">
+        <div class="bk-title" style="color:var(--text2)"><span style="width:24px;height:24px;border-radius:50%;background:var(--bg2);color:var(--text3);display:inline-flex;align-items:center;justify-content:center;font-size:12px">3</span> Special requests <span style="font-size:12px;font-weight:400;margin-left:4px">(optional)</span></div>
+        <textarea class="form-input" rows="2" placeholder="Wheelchair access, dietary needs, connecting rooms…" style="margin-top:10px;resize:none"></textarea>
+      </div>
+      <button class="continue-btn" onclick="showPage('visa')">Continue to documents →</button>
+    </div>
+    <div class="booking-sidebar">
+      <div class="sum-card">
+        <div class="sum-title">Order summary</div>
+        <div class="sum-pkg"><i class="ti ti-building-mosque"></i><div><div class="sum-pkg-name">Ramadan Gold Package</div><div class="sum-pkg-sub">14 nights · Umrah</div></div></div>
+        <div class="sum-row"><span class="sum-lbl">Package price</span><span class="sum-val">BDT 1,85,000</span></div>
+        <div class="sum-row"><span class="sum-lbl">Room (double)</span><span class="sum-val">Included</span></div>
+        <div class="sum-row"><span class="sum-lbl">Visa fee</span><span class="sum-val">BDT 8,500</span></div>
+        <div class="sum-row"><span class="sum-lbl">Ziyarah tour</span><span class="sum-val">BDT 4,000</span></div>
+        <div class="sum-divider"></div>
+        <div class="sum-total"><span>Total</span><span class="sum-total-val">BDT 1,97,500</span></div>
+        <div class="deposit-note">Deposit today: <strong style="color:var(--green-main)">BDT 30,000</strong></div>
+        <button class="pay-btn">Pay deposit now</button>
+        <div class="trust-row"><i class="ti ti-shield-check"></i> 100% secure · SSL encrypted</div>
+      </div>
+      <div style="background:var(--bg1);border:0.5px solid var(--border1);border-radius:var(--radius-lg);padding:14px;font-size:12px;color:var(--text2)">
+        <i class="ti ti-phone" style="font-size:14px;vertical-align:-2px;color:var(--green-mid)"></i> Need help? Call <span style="color:var(--green-main);font-weight:500">+880 1700-000000</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== VISA/DOCUMENT PAGE ===== -->
+<div id="page-visa" class="page">
+  <div class="booking-tabs">
+    <button class="btab done"><i class="ti ti-circle-check"></i> Traveller info</button>
+    <button class="btab done"><i class="ti ti-circle-check"></i> Documents</button>
+    <button class="btab active">Visa upload</button>
+    <button class="btab">Confirmation</button>
+  </div>
+  <div class="doc-page-wrap">
+    <div class="doc-main">
+      <div class="doc-page-title">Upload your documents</div>
+      <div class="doc-page-sub">Mohammad Rafiq · Ramadan Gold Package · Booking #BK-2061</div>
+
+      <div class="doc-card">
+        <div class="doc-icon uploaded"><i class="ti ti-file-check"></i></div>
+        <div class="doc-info">
+          <div class="doc-name">Passport (front & back)</div>
+          <div class="doc-meta">passport_rafiq.pdf · 1.2 MB · Uploaded 12 Jun</div>
+        </div>
+        <span class="doc-status s-verified">Verified</span>
+        <button class="doc-action">Replace</button>
+      </div>
+
+      <div class="doc-card">
+        <div class="doc-icon review"><i class="ti ti-clock"></i></div>
+        <div class="doc-info">
+          <div class="doc-name">Passport-size photo (white background)</div>
+          <div class="doc-meta">photo_rafiq.jpg · 340 KB · Uploaded 14 Jun</div>
+        </div>
+        <span class="doc-status s-review">In review</span>
+        <button class="doc-action">Replace</button>
+      </div>
+
+      <div class="doc-card">
+        <div class="doc-icon pending"><i class="ti ti-vaccine"></i></div>
+        <div class="doc-info">
+          <div class="doc-name">Vaccination certificate (Meningitis ACWY)</div>
+          <div class="doc-meta">PDF or image, max 5 MB — required by Saudi Arabia</div>
+        </div>
+        <span class="doc-status s-pending">Pending</span>
+        <button class="doc-action">Upload</button>
+      </div>
+
+      <div class="doc-card">
+        <div class="doc-icon pending"><i class="ti ti-id"></i></div>
+        <div class="doc-info">
+          <div class="doc-name">National ID card (NID)</div>
+          <div class="doc-meta">PDF or image, max 5 MB</div>
+        </div>
+        <span class="doc-status s-pending">Pending</span>
+        <button class="doc-action">Upload</button>
+      </div>
+
+      <div class="doc-card">
+        <div class="doc-icon pending"><i class="ti ti-users"></i></div>
+        <div class="doc-info">
+          <div class="doc-name">Mahram relationship letter</div>
+          <div class="doc-meta">Required for female pilgrims travelling without spouse/father</div>
+        </div>
+        <span class="doc-status s-pending">Pending</span>
+        <button class="doc-action">Upload</button>
+      </div>
+
+      <div class="upload-zone">
+        <div class="upload-icon"><i class="ti ti-cloud-upload"></i></div>
+        <div class="upload-title">Drag and drop your file here</div>
+        <div class="upload-sub">or select a file from your device</div>
+        <button class="upload-btn"><i class="ti ti-upload"></i> Browse files</button>
+        <div class="upload-formats">Accepted: JPG, PNG, PDF — max 5 MB per file</div>
+      </div>
+
+      <div class="notice-card">
+        <i class="ti ti-info-circle"></i>
+        Your passport must be valid for at least 6 months from your travel date. Ensure all pages are clear and uncropped before uploading.
+      </div>
+    </div>
+
+    <div class="doc-sidebar">
+      <div class="prog-card">
+        <div class="prog-title">Document progress</div>
+        <div class="prog-bar-bg"><div class="prog-bar-fill" style="width:40%"></div></div>
+        <div class="prog-text">2 of 5 documents completed</div>
+      </div>
+      <div class="prog-card">
+        <div class="prog-title">Checklist</div>
+        <div class="chk-item done"><span class="chk-dot done"><i class="ti ti-check"></i></span> Passport scan</div>
+        <div class="chk-item done"><span class="chk-dot done"><i class="ti ti-check"></i></span> Passport photo</div>
+        <div class="chk-item"><span class="chk-dot todo"></span> Vaccination certificate</div>
+        <div class="chk-item"><span class="chk-dot todo"></span> National ID card</div>
+        <div class="chk-item"><span class="chk-dot todo"></span> Mahram letter</div>
+      </div>
+      <button class="submit-btn">Submit for visa processing</button>
+      <div class="help-link"><i class="ti ti-headset"></i> Need help with documents?</div>
+    </div>
+  </div>
+</div>
+
+<script>
+function showPage(name){
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.getElementById('page-'+name).classList.add('active');
+  document.querySelectorAll('.nav-link').forEach(l=>l.classList.remove('active'));
+  const map={home:0,packages:1,visa:2};
+  if(map[name]!==undefined) document.querySelectorAll('.nav-link')[map[name]]?.classList.add('active');
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function selectRoom(el){
+  document.querySelectorAll('.room-opt').forEach(o=>o.classList.remove('selected'));
+  el.classList.add('selected');
+}
+</script>
+</body>
+</html>
